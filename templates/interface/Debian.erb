@@ -196,14 +196,16 @@ allow-hotplug <%= @interface %>
     primary_reselect <%= @primary_reselect %>
 <% end -%>
 
-<% if @ipaddress_v6 -%>
-iface <%= @name %> inet6 static
- address <%= @ipaddress_v6 %>
+<% if @ipv6 -%>
+<%= @stanza %> <%= @interface %> <%= @family_v6 %> <%= @manage_method %>
+ <% if @ipaddress_v6 -%>
+    address <%= @ipaddress_v6 %>
+ <% end -%>
  <% if @netmask_v6 -%>
- netmask <%= @netmask_v6 %>
+    netmask <%= @netmask_v6 %>
  <% end -%>
  <% if @gateway_v6 -%>
- gateway <%= @gateway_v6 %>
+    gateway <%= @gateway_v6 %>
  <% end -%>
 <% end -%>
 

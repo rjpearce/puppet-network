@@ -199,6 +199,7 @@ define network::interface (
   $hwaddr                = undef,
   $mtu                   = undef,
 
+  $ipv6                  = false,
   $ipaddress_v6          = undef,
   $netmask_v6            = undef,
   $gateway_v6            = undef,
@@ -209,6 +210,7 @@ define network::interface (
   $allow_hotplug         = undef,
   $method                = '',
   $family                = 'inet',
+  $family_v6             = 'inet6',
   $stanza                = 'iface',
   $address               = '',
   $dns_search            = undef,
@@ -556,6 +558,7 @@ define network::interface (
           address      => '127.0.0.1',
           method       => 'loopback',
           manage_order => '05',
+          ipv6         => $ipv6
         }
       }
     }
