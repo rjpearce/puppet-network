@@ -201,7 +201,7 @@ define network::interface (
 
   $ipaddress_v6          = undef,
   $netmask_v6            = undef,
-  $gateway_v6            = undef
+  $gateway_v6            = undef,
 
   ## Debian specific
   $manage_order          = '10',
